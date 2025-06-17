@@ -10,8 +10,8 @@ export default function Contact() {
         Contact Me
       </h3>
       <p className="text-center max-w-2xl mb-12 text-gray-600 text-lg">
-        Have a project in mind, or just want to say hi? I'd love to hear from you.
-        Fill out the form and I’ll get back to you as soon as possible.
+        Have a project in mind, or just want to say hi? I&apos;d love to hear from you.
+        Fill out the form and I&rsquo;ll get back to you as soon as possible.
       </p>
 
       <form

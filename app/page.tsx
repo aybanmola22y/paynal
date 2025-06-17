@@ -97,7 +97,7 @@ export default function HomePage() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg md:text-xl text-gray-300"
           >
-            Frontend Developer | UI/UX Enthusiast | Lifelong Learner
+            Aspiring Frontend Developer | QA Tester
           </motion.p>
 
           <motion.div

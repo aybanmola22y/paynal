@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
+import Link from 'next/link'; // ✅ Added import
 
 //
 import AboutMe from './AboutMe';
-import Skills from './Skills'
+import Skills from './Skills';
 import Projects from './Projects';
-import Contact from './Contact'
-
+import Contact from './Contact';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -28,9 +28,10 @@ export default function HomePage() {
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <a href="/" className="text-white font-bold text-xl">
+          {/* ✅ Replaced <a> with <Link> */}
+          <Link href="/" className="text-white font-bold text-xl">
             TheAivanne<span className="text-indigo-400">Effect</span>
-          </a>
+          </Link>
 
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
@@ -108,7 +109,7 @@ export default function HomePage() {
         </div>
       </main>
 
-      {/* render different file */}
+      {/* Render Different File Sections */}
       <AboutMe />
       <Skills />
       <Projects />

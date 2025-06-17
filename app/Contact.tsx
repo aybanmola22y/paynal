@@ -1,95 +1,70 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Mail, Send } from 'lucide-react';
-
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-32 py-24 bg-gradient-to-b from-gray-900 via-black to-gray-950 text-white"
+      className="w-full px-8 py-24 bg-gray-50 text-gray-800 flex flex-col items-center"
     >
-      <div className="max-w-4xl mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-10 text-indigo-400"
-        >
-          Contact Me
-        </motion.h2>
+      <h3 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-900">
+        Contact Me
+      </h3>
+      <p className="text-center max-w-2xl mb-12 text-gray-600 text-lg">
+        Have a project in mind, or just want to say hi? I'd love to hear from you.
+        Fill out the form and I’ll get back to you as soon as possible.
+      </p>
 
-        <motion.form
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="space-y-6 bg-gray-800 p-8 rounded-xl shadow-xl"
-          onSubmit={(e) => {
-            e.preventDefault();
-            alert('Message submitted!');
-          }}
-        >
-          <div className="flex flex-col">
-            <label htmlFor="name" className="text-sm mb-1">
-              Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              className="px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-          </div>
+      <form
+  action="https://formspree.io/f/mkgrepkg" // replace with your actual Formspree form ID
+  method="POST"
+  className="w-full max-w-xl bg-white rounded-xl shadow-md p-8 space-y-6"
+>
+  <div>
+    <label htmlFor="name" className="block mb-1 font-medium text-gray-700">
+      Name
+    </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
 
-          <div className="flex flex-col">
-            <label htmlFor="email" className="text-sm mb-1">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              className="px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-          </div>
+  <div>
+    <label htmlFor="email" className="block mb-1 font-medium text-gray-700">
+      Email
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
 
-          <div className="flex flex-col">
-            <label htmlFor="message" className="text-sm mb-1">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              required
-              className="px-4 py-2 rounded bg-gray-700 text-white resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            ></textarea>
-          </div>
+  <div>
+    <label htmlFor="message" className="block mb-1 font-medium text-gray-700">
+      Message
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows={5}
+      required
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    ></textarea>
+  </div>
 
-          <button
-            type="submit"
-            className="w-full mt-4 flex items-center justify-center gap-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded transition"
-          >
-            <Send size={18} />
-            Send Message
-          </button>
-        </motion.form>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-10 text-center text-sm text-gray-400"
-        >
-          <Mail className="inline-block mr-1" size={14} />
-          You can also reach me at: <span className="text-indigo-400">molatojohnaivanneofficial@gmail.com</span>
-        </motion.div>
-      </div>
+  <button
+    type="submit"
+    className="w-full py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 shadow-md hover:shadow-lg transition"
+  >
+    Send Message
+  </button>
+</form>
     </section>
   );
 }

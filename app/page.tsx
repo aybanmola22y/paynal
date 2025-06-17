@@ -11,6 +11,7 @@ import AboutMe from './AboutMe';
 import Skills from './Skills';
 import Projects from './Projects';
 import Contact from './Contact';
+import Footer from './Footer';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -114,6 +115,7 @@ export default function HomePage() {
       <Skills />
       <Projects />
       <Contact />
+      <Footer />
     </>
   );
 }

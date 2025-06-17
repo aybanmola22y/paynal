@@ -1,40 +1,27 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
-export default function AboutMe() {
+export default function About() {
   return (
     <section
       id="about"
-      className="scroll-mt-32 pt-32 min-h-screen flex items-center justify-center bg-gray-900 text-white px-4 py-20"
+      className="w-full px-8 py-24 bg-white text-gray-800 flex justify-center items-center"
     >
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold mb-6 text-indigo-400"
-        >
+      <div className="max-w-4xl text-center space-y-8">
+        <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
           About Me
-        </motion.h2>
+        </h3>
+        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+          Hi! I'm John Aivanne Molato, a 4th-year IT student at Palawan State University. 
+          I'm an aspiring Frontend Developer and Software Tester with a passion for building user-friendly digital experiences.
+          When I'm not writing code or exploring new tech tools, you'll probably find me playing Dota 2.
+          I also enjoy spending time with my friends, whether it’s a casual hangout, a group gaming session, or just enjoying good conversations. 
+          These moments outside of tech help me stay grounded and inspired.
+        </p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-lg md:text-xl text-gray-300 leading-relaxed"
-        >
-          Hello! I&apos;m <span className="text-white font-semibold">Ayban</span>, a passionate frontend developer
-          who enjoys building responsive, interactive websites using modern tools like{' '}
-          <span className="text-white font-semibold">Next.js</span>,{' '}
-          <span className="text-white font-semibold">TypeScript</span>, and{' '}
-          <span className="text-white font-semibold">Tailwind CSS</span>.
-          <br />
-          <br />
-          I love transforming ideas into beautiful, performant web interfaces and continuously learning along the way.
-        </motion.p>
+        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+          I’ve been focused on building a strong foundation in web development and software quality assurance by the help of AI.
+          Thank you for taking the time to get to know me. I’m always open to new challenges, collaborations, and conversations — feel free to reach out!
+        </p>
       </div>
     </section>
   );

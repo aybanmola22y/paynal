@@ -13,6 +13,9 @@ import Projects from './Projects';
 import Contact from './Contact';
 import Footer from './Footer';
 
+
+
+
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
@@ -27,47 +30,95 @@ export default function HomePage() {
   return (
     <>
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          {/* ✅ Replaced <a> with <Link> */}
-          <Link href="/" className="text-white font-bold text-xl">
-            TheAivanne<span className="text-indigo-400">Effect</span>
-          </Link>
+      <header className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md shadow-lg">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+    {/* Animated Logo */}
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <Link href="/" className="text-white font-extrabold text-2xl flex items-center gap-1">
+        <span className="text-indigo-400 animate-pulse">⚡</span>
+        <span>
+          TheAivanne<span className="text-indigo-400">Effect</span>
+        </span>
+      </Link>
+    </motion.div>
 
-          <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-white hover:text-indigo-400 transition duration-300"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+    {/* Desktop Navigation */}
+    <nav className="hidden md:flex space-x-6">
+  {navLinks.map((link, index) => (
+    <motion.a
+      key={link.name}
+      href={link.href}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.1 * index, duration: 0.5 }}
+      whileHover={{ scale: 1.1, color: '#818cf8' }} // tailwind's indigo-400
+      whileTap={{ scale: 0.95 }}
+      className="relative text-white transition duration-300 cursor-pointer font-medium"
+    >
+      {link.name}
+      <motion.span
+        className="absolute left-0 -bottom-1 h-0.5 bg-indigo-400"
+        initial={{ width: 0 }}
+        whileHover={{ width: '100%' }}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.a>
+  ))}
+</nav>
 
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="text-white" /> : <Menu className="text-white" />}
-            </button>
-          </div>
-        </div>
+    {/* Hamburger Button */}
+    <div className="md:hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="relative w-8 h-8 flex flex-col justify-center items-center group"
+      >
+        <span
+          className={`w-6 h-0.5 bg-white mb-1 transform transition duration-300 ${
+            isOpen ? 'rotate-45 translate-y-2' : ''
+          }`}
+        />
+        <span
+          className={`w-6 h-0.5 bg-white mb-1 transition-opacity duration-300 ${
+            isOpen ? 'opacity-0' : 'opacity-100'
+          }`}
+        />
+        <span
+          className={`w-6 h-0.5 bg-white transition duration-300 ${
+            isOpen ? '-rotate-45 -translate-y-2' : ''
+          }`}
+        />
+      </button>
+    </div>
+  </div>
 
-        {isOpen && (
-          <div className="md:hidden px-4 pb-4 space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block text-white hover:text-indigo-400 transition duration-300"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-        )}
-      </header>
+  {/* Mobile Menu */}
+  <motion.div
+    initial={false}
+    animate={isOpen ? 'open' : 'closed'}
+    variants={{
+      open: { opacity: 1, height: 'auto', transition: { duration: 0.3 } },
+      closed: { opacity: 0, height: 0, transition: { duration: 0.3 } },
+    }}
+    className="overflow-hidden md:hidden px-4 space-y-2"
+  >
+    {navLinks.map((link) => (
+      <motion.a
+        key={link.name}
+        href={link.href}
+        className="block text-white hover:text-indigo-400 transition duration-300 py-1"
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setIsOpen(false)}
+      >
+        {link.name}
+      </motion.a>
+    ))}
+  </motion.div>
+</header>
+
 
       {/* WELCOME SECTION */}
       <main

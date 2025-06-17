@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
 import Link from 'next/link'; // ✅ Added import
 
